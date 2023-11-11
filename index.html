@@ -18,17 +18,12 @@ if(isset($recaptcha)){
 	echo "captchaエラー";
 	exit;
 }
-$secretKey = "シークレットキーを記入";
+$secretKey = "6Ld_ngspAAAAANCg2lCMdmnZRRUBMupsWVLm9KLr";
 
 $resp = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$captcha}");
 $resp_result = json_decode($resp,true);
 
 if(intval($resp_result["success"]) !== 1) {
-	<p> s <\p>
-}else{
-	//認証成功時の処理をここに書く
-	//ここにmailsend等の記述をする。
-}
 
 ?>
 </html>
